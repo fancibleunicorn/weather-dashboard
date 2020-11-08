@@ -60,20 +60,30 @@ fetch(apiUviUrl).then(function(response) {
         
     })
 }
- 
+
+//When Search Button is clicked
 $("#city-btn").click(function(event) {
     event.preventDefault();
     var cityName = $("#city").val();
     findCurrentWeather(cityName);
+    //Add searched City to Search History
+    $("#recent").append("<li id='recent-city' class='list-group-item'>" + cityName +"</li>");
 })
 
+//When Recent City is clicked
+$("#recent").on("click", "li", function (event) {
+    event.preventDefault();
+    var recentCity =$(this).text();
+    findCurrentWeather(recentCity)
+})
 
-
-
-//Save Searched City to Search History
 
 // Change UV Index's Color (favorable, moderate, or severe)
 
 //Show 5-day forecast (date, an icon representation of weather conditions, the temperature, and the humidity)
 
-//Show weather from search history
+//Bugs:
+
+//don't show a city if you search it multiple times
+
+//error message if invalid city
