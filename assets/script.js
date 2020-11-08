@@ -1,7 +1,5 @@
 //API Key a877d2c6ed19aff0fd1776e7df46844f
 
-//psuedo code
-
 //Show Current Weather (city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index)
 var findCurrentWeather = function(city) {
     //current weather by city
@@ -12,37 +10,40 @@ var findCurrentWeather = function(city) {
         return response.json();
     })
     .then(function(data){
-        console.log(data);
         //Current City
-        var currentCity = data.name
-        console.log(currentCity)
+        var currentCity = data.name;
+        $("#current-city").empty().append(currentCity);
+
         // Current Date
-        var currentDate = moment().format('M/DD/YYYY')
-        console.log(currentDate)
-        // Curren Icon
-        var currentIcon = data.weather[0].icon
-        console.log(currentIcon)
+        var currentDate = moment().format(' (M/DD/YYYY)')
+        $("#current-city").append(currentDate);
+
+        // Current Icon
+        var iconCode = data.weather[0].icon
+        var icon = "http://openweathermap.org/img/wn/" + iconCode + "@2x.png"
+       $("#current-icon").attr('src', icon);
+
         // Current Temp
         var currentTemp = data.main.temp
-        console.log(currentTemp)
+        $("#current-temp").empty().append('Temperature: ' + currentTemp +' °F')
+
         //Current Humidity
         var currentHumid = data.main.humidity
-        console.log(currentHumid)
+        $("#current-humidity").empty().append('Humidity: ' + currentHumid + "%")
+
         //Current Windspeed
         var currentWind = data.wind.speed
-        console.log(currentWind)
+        $("#current-wind").empty().append('Wind Speed: ' + currentWind +" mph")
+
         //Current Latitude
         var currentLat = data.coord.lat
-        console.log(currentLat)
+
         //Current Longitude
         var currentLon = data.coord.lon
-        console.log(currentLon)
 
         // Display Current UV Index
         findCurrentUvi(currentLat, currentLon);
     })
-
-    
 }
 
 //Find UV Index for Current City
@@ -53,15 +54,20 @@ fetch(apiUviUrl).then(function(response) {
         return response.json();
     })
     .then(function(data){
-        console.log(data);
         // UVI Index
         var currentUvi = data.value
-        console.log(currentUvi);
+        $("#current-UVI").empty().append('UV Index: ' + currentUvi);
         
     })
 }
  
-findCurrentWeather("Knoxville")
+$("#city-btn").click(function(event) {
+    event.preventDefault();
+    var cityName = $("#city").val();
+    findCurrentWeather(cityName);
+})
+
+
 
 
 //Save Searched City to Search History

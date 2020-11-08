@@ -21,8 +21,8 @@
         <!-- Search for a City bar -->
         <form class="container form-group">
             <h4>Search for a City:</h4>
-            <input type="text" class="custom-control custom-control-inline w-75" id="city">
-            <button type="submit" class="btn btn-primary"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <input id="city" type=" text" class="custom-control custom-control-inline w-75">
+            <button id="city-btn" type="submit" class="btn btn-primary"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
                 <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
             </svg></button>
@@ -41,11 +41,12 @@
     <div class="col-7">
         <!--Searched City Current Weather  -->
         <div class="container border p-3">
-            <h3 class="p-3">City Name (m/dd/yyyy)</h3>
-            <h6 class="p-2">Temperature: </h6>
-            <h6 class="p-2">Humidity: </h6>
-            <h6 class="p-2">Wind Speed: </h6>
-            <h6 class="p-2">UV Index: </h6>
+            <h3 id="current-city" class="p-3"> </h3>
+            <img id="current-icon">
+            <h6 id="current-temp" class="p-2">Temperature: </h6>
+            <h6 id="current-humidity" class="p-2">Humidity: </h6>
+            <h6 id="current-wind" class="p-2">Wind Speed: </h6>
+            <h6 id="current-UVI" class="p-2">UV Index: </h6>
         </div>
         <!-- 5-day Forecast: -->
         <div class="container p-3">
@@ -118,6 +119,8 @@
 
 <!-- Moment.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
+<!-- Jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 <script src="./assets/script.js"></script>
 
 </body>
