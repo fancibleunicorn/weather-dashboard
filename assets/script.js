@@ -56,8 +56,19 @@ fetch(apiUviUrl).then(function(response) {
     .then(function(data){
         // UVI Index
         var currentUvi = data.value
-        $("#current-UVI").empty().append('UV Index: ' + currentUvi);
+        $("#current-UVI").empty().removeClass().append(currentUvi);
         
+        // Change UV Index's Color (favorable:1-2, moderate: 3-5, or severe: 6+)
+        if (currentUvi < 2.01) {
+            $("#current-UVI").addClass("bg-success text-white p-2")
+        }
+        else if (currentUvi <5.01) {
+            $("#current-UVI").addClass("bg-warning text-white p-2")
+        }
+        else {
+            $("#current-UVI").addClass("bg-danger text-white p-2")
+        }
+
     })
 }
 
@@ -78,9 +89,9 @@ $("#recent").on("click", "li", function (event) {
 })
 
 
-// Change UV Index's Color (favorable, moderate, or severe)
 
 //Show 5-day forecast (date, an icon representation of weather conditions, the temperature, and the humidity)
+
 
 //Bugs:
 
