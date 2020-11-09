@@ -6,11 +6,15 @@ var findCurrentWeather = function(city) {
     //current weather by city
     var apiCurrentUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=a877d2c6ed19aff0fd1776e7df46844f"
 
+
+    fetch(apiCurrentUrl).then(function(response) { 
+
+    return response.json();
     
-    fetch(apiCurrentUrl).then(function(response) {
-        return response.json();
     })
     .then(function(data){
+
+        
         //Current City
         var currentCity = data.name;
         $("#current-city").empty().append(currentCity);
@@ -191,9 +195,3 @@ $("#recent").on("click", "li", function (event) {
     var recentCity =$(this).text();
     findCurrentWeather(recentCity)
 })
-
-//Bugs:
-
-//don't show a city if you search it multiple times
-
-//error message if invalid city
