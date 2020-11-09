@@ -1,6 +1,6 @@
 # Weather Dashboard
 
-![Project Image](/assets/projectimage.jpg)
+![Project Image](/assets/projectimage.png)
 
 ### Table of Contents
 - [Description](#description)
